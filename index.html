@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDM Practice 6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-fuchsia-500 via-pink-500 to-rose-500 p-6 min-h-screen flex flex-col items-center justify-start text-center">
+    
+    <h1 class="text-3xl font-bold underline mb-4">
+        Practice 6
+    </h1>
+
+    <table style="border: 3px solid black; border-collapse: collapse; width: 50%;" class="bg-white/10">
+        <tr>
+            <th class="border border-black p-2">#</th>
+            <th class="border border-black p-2">SUBJECT</th>
+            <th colspan="3" class="border border-black p-2">MARKS</th>
+        </tr>
+        <tr>
+            <td class="border border-black p-2">1</td>
+            <td class="border border-black p-2">DMGT</td>
+            <td colspan="3" class="border border-black p-2"><input type="number" id="s1" placeholder="Enter marks" class="text-center"></td>
+        </tr>
+        <tr>
+            <td class="border border-black p-2">2</td>
+            <td class="border border-black p-2">DSA</td>
+            <td colspan="3" class="border border-black p-2"><input type="number" id="s2" placeholder="Enter marks" class="text-center"></td>
+        </tr>
+        <tr>
+            <td class="border border-black p-2">3</td>
+            <td class="border border-black p-2">CAO</td>
+            <td colspan="3" class="border border-black p-2"><input type="number" id="s3" placeholder="Enter marks" class="text-center"></td>
+        </tr>
+        <tr>
+            <td class="border border-black p-2">4</td>
+            <td class="border border-black p-2">ES</td>
+            <td colspan="3" class="border border-black p-2"><input type="number" id="s4" placeholder="Enter marks" class="text-center"></td>
+        </tr>
+        <tr>
+            <td class="border border-black p-2">5</td>
+            <td class="border border-black p-2">MDM</td>
+            <td colspan="3" class="border border-black p-2"><input type="number" id="s5" placeholder="Enter marks" class="text-center"></td>
+        </tr>
+    </table>
+
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" onclick="calculateTotal()">Calculate Total</button>
+    
+    <p id="total" class="mt-4 text-lg font-semibold"></p>
+
+    <script>
+        function calculateTotal() {
+            let sub1 = Number(document.getElementById("s1").value);
+            let sub2 = Number(document.getElementById("s2").value); 
+            let sub3 = Number(document.getElementById("s3").value);
+            let sub4 = Number(document.getElementById("s4").value);
+            let sub5 = Number(document.getElementById("s5").value);
+            
+            alert("Marks for DMGT: " + sub1 + "\nMarks for DSA: " + sub2 + "\nMarks for CAO: " + sub3 + "\nMarks for ES: " + sub4 + "\nMarks for MDM: " + sub5);
+            
+            let total = sub1 + sub2 + sub3 + sub4 + sub5;
+            let percentage = (total / 500) * 100;
+            
+            let grade = "";
+            if (percentage >= 90) grade = "A+";
+            else if (percentage >= 80) grade = "A";
+            else if (percentage >= 70) grade = "B+";
+            else if (percentage >= 60) grade = "B";
+            else if (percentage >= 50) grade = "C";
+            else grade = "F";
+
+            document.getElementById("total").innerHTML = 
+                "Total Marks: " + total + "<br>" +
+                "Percentage: " + percentage.toFixed(1) + "%<br>" +
+                "Grade: " + grade;
+        }
+    </script>
+</body>
+</html>
